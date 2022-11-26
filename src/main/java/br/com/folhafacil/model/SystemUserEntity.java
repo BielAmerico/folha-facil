@@ -30,9 +30,13 @@ public class SystemUserEntity implements Serializable {
 	
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	private Long id;
+	public Long id;
 	
-	private String login;
+	public String Active;
 	
-	private String password;
+	public String name;
+	
+	public String login;
+	
+	public String password;
 }

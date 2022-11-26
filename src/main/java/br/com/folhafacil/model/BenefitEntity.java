@@ -31,13 +31,13 @@ public class BenefitEntity implements Serializable {
 	
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	private Long id;
+	public Long id;
 		
 	@Column(name = "name", unique = true)
-	private String nameBenefit;
+	public String nameBenefit;
 	
 	@Column(name = "applyPorcentagen")
-	private Long porcentageBaseSalary;
+	public Long porcentageBaseSalary;
 	
-	private BigDecimal value;
+	public BigDecimal value;
 }

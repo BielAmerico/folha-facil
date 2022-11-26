@@ -1,11 +1,13 @@
 package br.com.folhafacil.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -29,17 +31,25 @@ public class EmployeeEntity implements Serializable {
 	
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	private Long id;
+	public Long id;
 	
-	private String name;
+	public String name;
 	
-	private Long cpf;
+	public Long cpf;
 	
-	private String rg;
+	public String rg;
 		
-	private String gender;
+	public String gender;
 	
-	private String email;
+	public String email;
 	
-	private String telephone;
+	public String telephone;
+	
+	public Long baseSalary;
+	
+	public String office;
+	
+	@OneToMany(mappedBy = "employee")
+	public List<PayrollEntity> prayolls;
+	
 }
