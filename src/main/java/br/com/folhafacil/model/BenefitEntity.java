@@ -11,12 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Setter
-@Getter
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -40,4 +36,36 @@ public class BenefitEntity implements Serializable {
 	public Long porcentageBaseSalary;
 	
 	public BigDecimal value;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNameBenefit() {
+		return nameBenefit;
+	}
+
+	public void setNameBenefit(String nameBenefit) {
+		this.nameBenefit = nameBenefit;
+	}
+
+	public Long getPorcentageBaseSalary() {
+		return porcentageBaseSalary;
+	}
+
+	public void setPorcentageBaseSalary(Long porcentageBaseSalary) {
+		this.porcentageBaseSalary = porcentageBaseSalary;
+	}
+
+	public BigDecimal getValue() {
+		return value;
+	}
+
+	public void setValue(BigDecimal value) {
+		this.value = value;
+	}
 }
