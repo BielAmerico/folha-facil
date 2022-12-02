@@ -1,6 +1,10 @@
 package br.com.folhafacil.dto;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -8,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PayrollDTO {
-	
+
 	public String referringMonth;
 
 	public Long referringYear;
@@ -19,12 +23,15 @@ public class PayrollDTO {
 
 	public BigDecimal liquidSalary;
 
-	public String descripiton;
-
-	public BigDecimal discounts;
-
 	public EmployeeDTO employee;
-	
+
+	@JsonProperty(value = "items")
+	public List<PayrollItemDTO> payrollItems = new ArrayList<>();
+
+	public void addItems(PayrollItemDTO item) {
+		this.payrollItems.add(item);
+	}
+
 	public EmployeeDTO getEmployee() {
 		return employee;
 	}
@@ -71,21 +78,5 @@ public class PayrollDTO {
 
 	public void setLiquidSalary(BigDecimal liquidSalary) {
 		this.liquidSalary = liquidSalary;
-	}
-
-	public String getDescripiton() {
-		return descripiton;
-	}
-
-	public void setDescripiton(String descripiton) {
-		this.descripiton = descripiton;
-	}
-
-	public BigDecimal getDiscounts() {
-		return discounts;
-	}
-
-	public void setDiscounts(BigDecimal discounts) {
-		this.discounts = discounts;
 	}
 }

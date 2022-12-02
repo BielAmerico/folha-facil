@@ -2,6 +2,7 @@ package br.com.folhafacil.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,9 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Entity
-@AllArgsConstructor
 @NoArgsConstructor
-
+@AllArgsConstructor
 @Table(name = "employee")
 public class EmployeeEntity implements Serializable {
 
@@ -51,8 +51,9 @@ public class EmployeeEntity implements Serializable {
 	public String office;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "employee", orphanRemoval = true)
-	public List<PayrollEntity> payrolls;
+	public List<PayrollEntity> payrolls = new ArrayList<>();;
 
+	
 	public void addPayroll(PayrollEntity payroll) {
 		this.payrolls.add(payroll);
 		payroll.setEmployee(this);
